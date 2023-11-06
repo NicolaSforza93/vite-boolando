@@ -1,0 +1,42 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.container {
+    max-width: 750px;
+    margin: 0 auto;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+img {
+    width: 100%;
+}
+
+.col-4 {
+    flex-basis: calc((100% / 12) * 4);
+    padding: 6px;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul,
+ol,
+menu {
+    list-style: none;
+}
+
+section {
+    padding: 35px;
+}
