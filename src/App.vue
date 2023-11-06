@@ -1,12 +1,24 @@
-<script setup>
-// import HelloWorld from './components/HelloWorld.vue'
+<script>
+import PageHeader from './components/PageHeader.vue';
+import Product from './components/Product.vue';
+import PageFooter from './components/PageFooter.vue';
+
+export default {
+  components: {
+    PageHeader,
+    Product,
+    PageFooter,
+  },
+  data() {
+    return
+  }
+}
 </script>
 
 <template>
-  <div>
-
-  </div>
-  <!-- <HelloWorld msg="Vite + Vue" /> -->
+  <PageHeader />
+  <Product />
+  <PageFooter />
 </template>
 
 <style lang="scss"></style>
