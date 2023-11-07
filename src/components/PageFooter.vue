@@ -18,11 +18,11 @@ export default {
                 <div class="col social">
                     <p>Trovaci anche su</p>
                     <ul>
-                        <li><a class="icon" href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a class="icon" href="#"><i class="fa fa-facebook-f"></i></a></li>
-                        <li><a class="icon" href="#"><i class="fa fa-instagram"></i></a></li>
-                        <li><a class="icon" href="#"><i class="fa fa-pinterest"></i></a></li>
-                        <li><a class="icon" href="#"><i class="fa fa-youtube-play"></i></a></li>
+                        <li><a class="icon" href="#"><font-awesome-icon icon="fa-brands fa-x-twitter" /></a></li>
+                        <li><a class="icon" href="#"><font-awesome-icon icon="fa-brands fa-facebook-f" /></a></li>
+                        <li><a class="icon" href="#"><font-awesome-icon icon="fa-brands fa-instagram" /></a></li>
+                        <li><a class="icon" href="#"><font-awesome-icon icon="fa-brands fa-pinterest-p" /></a></li>
+                        <li><a class="icon" href="#"><font-awesome-icon icon="fa-brands fa-youtube" /></a></li>
                     </ul>
                 </div>
             </div>
@@ -56,6 +56,8 @@ address {
 }
 
 .social {
+    text-align: center;
+
     p {
         font-size: 8px;
         padding: 0px 3px;
@@ -63,11 +65,14 @@ address {
 
     ul {
         display: flex;
+        gap: 4px;
 
         .icon {
+            font-size: 10px;
             background-color: white;
             color: black;
-            padding: 0px 1px;
+            padding: 0px 2px;
+            border-radius: 3px;
         }
     }
 

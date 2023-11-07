@@ -19,9 +19,9 @@ export default {
                 </div>
                 <div class="col"><img class="logo" src="/boolean-logo.png" alt="Logo"></div>
                 <div class="col">
-                    <span class="icon"><i class="fa fa-user"></i></span>
-                    <span class="icon"><i class="fa fa-heart-o"></i></span>
-                    <span class="icon"><i class="fa fa-shopping-bag"></i></span>
+                    <span class="icon"><font-awesome-icon icon="fa-regular fa-user" /></span>
+                    <span class="icon"><font-awesome-icon icon="fa-regular fa-heart" /></span>
+                    <span class="icon"><font-awesome-icon icon="fa-solid fa-bag-shopping" /></span>
                 </div>
             </div>
         </nav>
@@ -55,7 +55,6 @@ header {
             font-size: 12px;
             padding: 4px;
             color: white;
-            font-weight: 500;
         }
     }
 }

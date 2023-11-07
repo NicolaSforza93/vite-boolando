@@ -16,8 +16,7 @@ export default {
             <img class="overlay" :src="item.backImage" alt="Uomo Levi's giacca">
             <span class="heart-icon" :class="item.isInFavorites === true ? 'favorite' : ''">&hearts;</span>
             <ul class="tags">
-                <li class="tag" v-for="(badge, index) in item.badges" :key="index"
-                    :class="badge.type === 'tag' ? 'tag-green' : 'tag-discount'">
+                <li v-for="(badge, index) in item.badges" :key="index" :class="['tag', badge.type]">
                     <span>{{ badge.value }}</span>
                 </li>
             </ul>
@@ -70,28 +69,12 @@ export default {
     font-size: 9px;
     color: white;
     white-space: nowrap;
+    background-color: green;
 }
 
-.tag.tag-discount {
+.discount {
     background-color: red;
-
 }
-
-.tag.tag-green {
-    background-color: green;
-
-}
-
-.eco-two {
-    position: absolute;
-    bottom: 25px;
-    display: block;
-    font-size: 9px;
-    padding: 4px 6px;
-    background-color: green;
-    color: white;
-}
-
 
 .overlay {
     position: absolute;
@@ -116,14 +99,16 @@ export default {
     font-size: 10px;
 
     h1 {
-        font-weight: 900;
+        text-transform: uppercase;
+        font-weight: bold;
         font-size: 10px;
     }
 }
 
 .price {
     color: red;
-    font-weight: 900;
+    font-weight: bold;
+    margin-right: 5px;
 }
 
 .price-crossed {
