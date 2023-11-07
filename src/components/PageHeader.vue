@@ -2,7 +2,8 @@
 export default {
     data() {
         return {
-            gender: ['Donna', 'Uomo', 'Bambini']
+            gender: ['Donna', 'Uomo', 'Bambini'],
+            navIcons: ['fa-regular fa-user', 'fa-regular fa-heart', 'fa-solid fa-bag-shopping']
         }
     }
 }
@@ -14,14 +15,15 @@ export default {
             <div class="row">
                 <div class="col gender">
                     <ul>
-                        <li v-for="item in gender" :key="item"><a href="#">{{ item }}</a></li>
+                        <li v-for="(item, index) in gender" :key="index"><a href="#">{{ item }}</a></li>
                     </ul>
                 </div>
                 <div class="col"><img class="logo" src="/boolean-logo.png" alt="Logo"></div>
                 <div class="col">
-                    <span class="icon"><font-awesome-icon icon="fa-regular fa-user" /></span>
-                    <span class="icon"><font-awesome-icon icon="fa-regular fa-heart" /></span>
-                    <span class="icon"><font-awesome-icon icon="fa-solid fa-bag-shopping" /></span>
+                    <ul class="nav-icons">
+                        <li v-for="(icon, index) in navIcons" :key="index"><a href="#"><font-awesome-icon
+                                    :icon="icon" /></a></li>
+                    </ul>
                 </div>
             </div>
         </nav>
@@ -61,12 +63,18 @@ header {
 
 .row {
     justify-content: space-between;
+    align-items: center;
 }
 
-.icon {
-    color: white;
-    padding: 2px;
-    font-size: 10px;
+.nav-icons {
+    display: flex;
+    gap: 4px;
+
+    a {
+        color: white;
+        font-size: 10px;
+    }
+
 }
 </style>
 
