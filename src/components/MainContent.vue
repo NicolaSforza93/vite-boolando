@@ -1,15 +1,17 @@
 <script>
 import Product from './Product.vue';
-import garments from '../db.json';
+import clothing from '../db.json';
 
 export default {
     components: { Product },
     data() {
-        return
+        return {
+            clothing: clothing.products
+        }
+    },
+    mounted() {
     }
 }
-
-
 </script>
 
 <template>
@@ -17,8 +19,8 @@ export default {
         <section>
             <div class="container">
                 <div class="row">
-                    <div v-for="n in 6" :key="n" class="col-4">
-                        <Product />
+                    <div v-for="(product, index) in clothing" :key="index" class="col-4">
+                        <Product :item="product" />
                     </div>
                 </div>
             </div>

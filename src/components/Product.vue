@@ -1,7 +1,10 @@
 <script>
 export default {
-    data() {
-        return
+    props: {
+        item: {
+            type: Object,
+            required: true
+        }
     }
 }
 </script>
@@ -9,18 +12,23 @@ export default {
 <template>
     <div class="card">
         <figure class="card image">
-            <img src="/1.webp" alt="Uomo Levi's T-shirt">
-            <img class="overlay" src="/1b.webp" alt="Uomo Levi's giacca">
-            <span class="heart-icon">&hearts;</span>
-            <span class="discount">-50%</span>
-            <span class="eco">Sostenibilità</span>
+            <img :src="item.frontImage" alt="Uomo Levi's T-shirt">
+            <img class="overlay" :src="item.backImage" alt="Uomo Levi's giacca">
+            <span class="heart-icon" :class="item.isInFavorites === true ? 'favorite' : ''">&hearts;</span>
+            <ul class="tags">
+                <li class="tag" v-for="(badge, index) in item.badges" :key="index"
+                    :class="badge.type === 'tag' ? 'tag-green' : 'tag-discount'">
+                    <span>{{ badge.value }}</span>
+                </li>
+            </ul>
+
         </figure>
 
         <div class="details">
-            <p class="brand">Levi's</p>
-            <h1>RELAXED FIT TEE UNISEX</h1>
+            <p class="brand">{{ item.brand }}</p>
+            <h1>{{ item.name }}</h1>
             <p>
-                <span class="price">14,99 &euro;</span>
+                <span class="price">{{ item.price }} &euro;</span>
                 <span class="price-crossed">29,99 &euro;</span>
             </p>
         </div>
@@ -44,25 +52,34 @@ export default {
     padding: 2px 7px;
 }
 
-.discount {
-    position: absolute;
-    bottom: 25px;
-    display: block;
-    font-size: 9px;
-    padding: 4px 6px;
-    background-color: red;
-    color: white;
+.favorite {
+    color: red;
 }
 
-.eco {
+.tags {
+    display: flex;
+    gap: 4px;
     position: absolute;
+    left: 0;
     bottom: 25px;
-    left: 34px;
-    display: block;
+}
+
+.tag {
+    line-height: 22px;
+    padding: 0 8px;
     font-size: 9px;
-    padding: 4px 6px;
-    background-color: green;
     color: white;
+    white-space: nowrap;
+}
+
+.tag.tag-discount {
+    background-color: red;
+
+}
+
+.tag.tag-green {
+    background-color: green;
+
 }
 
 .eco-two {
@@ -89,11 +106,11 @@ export default {
     }
 }
 
-.heart-icon {
-    &:hover {
-        color: red;
-    }
-}
+// .heart-icon {
+//     &:hover {
+//         color: red;
+//     }
+// }
 
 .details {
     font-size: 10px;
