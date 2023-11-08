@@ -20,7 +20,7 @@ export default {
         <section>
             <div class="container">
                 <div class="row">
-                    <div v-for="(product, id) in store.clothing" :key="id" class="col-4">
+                    <div v-for="(product, id) in store.products" :key="id" class="col-4">
                         <Product :item="product" />
                     </div>
                 </div>
