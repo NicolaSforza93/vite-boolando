@@ -13,7 +13,6 @@ export default {
   },
   data() {
     return {
-      store
     }
 
   },
@@ -23,7 +22,7 @@ export default {
         // console.log(res.data);
         const products = res.data;
         // console.log(products);
-        this.store.products = products;
+        store.products = products;
       })
   }
 }
