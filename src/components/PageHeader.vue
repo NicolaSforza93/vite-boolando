@@ -55,6 +55,7 @@ header {
 
         a {
             font-size: 12px;
+            font-weight: 500;
             padding: 4px;
             color: white;
         }

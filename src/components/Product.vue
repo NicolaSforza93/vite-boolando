@@ -100,14 +100,14 @@ export default {
 
     h1 {
         text-transform: uppercase;
-        font-weight: bold;
+        font-weight: 700;
         font-size: 10px;
     }
 }
 
 .price {
     color: red;
-    font-weight: bold;
+    font-weight: 700;
     margin-right: 5px;
 }
 

@@ -1,12 +1,13 @@
 <script>
 import Product from './Product.vue';
-import clothing from '../db.json';
+// import clothing from '../db.json';
+import { store } from '../store';
 
 export default {
     components: { Product },
     data() {
         return {
-            clothing: clothing.products
+            store
         }
     },
     mounted() {
@@ -19,7 +20,7 @@ export default {
         <section>
             <div class="container">
                 <div class="row">
-                    <div v-for="(product, index) in clothing" :key="index" class="col-4">
+                    <div v-for="(product, id) in store.clothing" :key="id" class="col-4">
                         <Product :item="product" />
                     </div>
                 </div>

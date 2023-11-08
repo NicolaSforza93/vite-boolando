@@ -71,7 +71,7 @@ address {
             font-size: 10px;
             background-color: white;
             color: black;
-            padding: 0px 2px;
+            padding: 1px 2px;
             border-radius: 3px;
         }
     }
