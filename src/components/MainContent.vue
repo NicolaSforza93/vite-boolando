@@ -7,7 +7,34 @@ export default {
     components: { Product },
     data() {
         return {
-            store
+            store,
+            open: false,
+            selectedProduct: {}
+        }
+    },
+    computed: {
+        products: function () {
+            return store.products;
+        }
+    },
+    methods: {
+        toggleFavorite(item) {
+            // console.log(item);
+            if (item.isInFavorites === true) {
+                item.isInFavorites = false;
+            } else {
+                item.isInFavorites = true
+            }
+        },
+
+        showModal(product) {
+            this.selectedProduct = product;
+            this.open = true;
+        },
+
+        closeModal() {
+            this.open = false;
+            this.selectedProduct = {};
         }
     },
     mounted() {
@@ -20,17 +47,72 @@ export default {
         <section>
             <div class="container">
                 <div class="row">
-                    <div v-for="(product, id) in store.products" :key="id" class="col-4">
-                        <Product :item="product" />
+                    <div v-for="(product, id) in products" :key="id" class="col-4">
+                        <Product :item="product" @toggle="toggleFavorite" @show="showModal" />
                     </div>
                 </div>
             </div>
         </section>
+        <div v-if="open" class="modal">
+            <div class="card">
+                <div class="card-header">
+                    <figure>
+                        <img :src="selectedProduct.frontImage" alt="">
+                    </figure>
+                </div>
+                <div class="card-body">
+                    <p>
+                        {{ selectedProduct.brand }}
+                    </p>
+                    <h1>{{ selectedProduct.name }}</h1>
+                </div>
+                <span class="close">
+                    <font-awesome-icon @click="closeModal" icon="fa-solid fa-circle-xmark" />
+                </span>
+            </div>
+        </div>
     </main>
 </template>
 
 <style lang="scss" scoped>
 section {
     padding: 35px;
+}
+
+.modal::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 40;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal .card {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 50;
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    display: flex;
+    gap: 10px;
+}
+
+.card-body {
+    align-self: center;
+}
+
+.close {
+    cursor: pointer;
+    font-size: 20px;
+    color: red;
 }
 </style>

@@ -14,13 +14,17 @@ export default {
         <figure class="card image">
             <img :src="item.frontImage" alt="Uomo Levi's T-shirt">
             <img class="overlay" :src="item.backImage" alt="Uomo Levi's giacca">
-            <span class="heart-icon" :class="item.isInFavorites === true ? 'favorite' : ''">&hearts;</span>
+            <span class="heart-icon" :class="{ 'favorite': item.isInFavorites }" @click="$emit('toggle', item)">
+                <font-awesome-icon icon="fa-regular fa-heart" />
+            </span>
+            <span class="info" @click="$emit('show', item)">
+                <font-awesome-icon icon="fa-solid fa-circle-info" />
+            </span>
             <ul class="tags">
                 <li v-for="(badge, index) in item.badges" :key="index" :class="['tag', badge.type]">
                     <span>{{ badge.value }}</span>
                 </li>
             </ul>
-
         </figure>
 
         <div class="details">
@@ -49,10 +53,21 @@ export default {
     font-size: 20px;
     background-color: white;
     padding: 2px 7px;
+    cursor: pointer;
 }
 
 .favorite {
     color: red;
+}
+
+.info {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    color: rgba(128, 128, 128, 0.668);
+    display: block;
+    font-size: 16px;
+    cursor: pointer;
 }
 
 .tags {
