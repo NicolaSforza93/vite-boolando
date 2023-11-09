@@ -3,7 +3,7 @@ export default {
     data() {
         return {
             gender: ['Donna', 'Uomo', 'Bambini'],
-            navIcons: ['fa-regular fa-user', 'fa-regular fa-heart', 'fa-solid fa-cart-shopping']
+            navIcons: ['fa-regular fa-user', 'fa-regular fa-heart', 'fa-solid fa-bag-shopping']
         }
     }
 }
@@ -58,6 +58,10 @@ header {
             font-weight: 500;
             padding: 4px;
             color: white;
+
+            &:hover {
+                background-color: rgba(255, 166, 0, 0.632);
+            }
         }
     }
 }
@@ -69,11 +73,11 @@ header {
 
 .nav-icons {
     display: flex;
-    gap: 5px;
+    gap: 10px;
 
     a {
         color: white;
-        font-size: 12px;
+        font-size: 15px;
     }
 
 }

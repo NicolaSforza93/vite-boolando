@@ -15,7 +15,7 @@ export default {
             <img :src="item.frontImage" alt="Uomo Levi's T-shirt">
             <img class="overlay" :src="item.backImage" alt="Uomo Levi's giacca">
             <span class="heart-icon" :class="{ 'favorite': item.isInFavorites }" @click="$emit('toggle', item)">
-                <font-awesome-icon icon="fa-regular fa-heart" />
+                <font-awesome-icon icon="fa-solid fa-heart" />
             </span>
             <span class="info" @click="$emit('show', item)">
                 <font-awesome-icon icon="fa-solid fa-circle-info" />
@@ -50,7 +50,7 @@ export default {
     top: 6px;
     right: 0;
     display: block;
-    font-size: 20px;
+    font-size: 18px;
     background-color: white;
     padding: 2px 7px;
     cursor: pointer;
@@ -64,7 +64,7 @@ export default {
     position: absolute;
     top: 5px;
     left: 5px;
-    color: rgba(128, 128, 128, 0.668);
+    color: rgba(128, 128, 128, 0.559);
     display: block;
     font-size: 16px;
     cursor: pointer;
@@ -104,11 +104,11 @@ export default {
     }
 }
 
-// .heart-icon {
-//     &:hover {
-//         color: red;
-//     }
-// }
+.heart-icon {
+    &:hover {
+        background-color: transparent;
+    }
+}
 
 .details {
     font-size: 10px;

@@ -44,13 +44,13 @@ footer {
 address {
     h1 {
         font-style: normal;
-        font-size: 10px;
+        font-size: 11px;
     }
 
     a {
         font-style: normal;
         color: white;
-        font-size: 8px;
+        font-size: 9px;
         margin-right: 5px;
     }
 }
@@ -59,7 +59,7 @@ address {
     text-align: center;
 
     p {
-        font-size: 8px;
+        font-size: 10px;
         padding: 0px 3px;
     }
 
